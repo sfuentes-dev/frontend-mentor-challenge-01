@@ -1,21 +1,33 @@
 import { useState } from 'react'
 import validator from 'validator'
 import Alert from './Alert'
-
 import logo from './assets/images/logo.svg'
 import illustration from './assets/images/illustration-dashboard.png'
 
 const App = () => {
   const [email, setEmail] = useState('')
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    if ([email].includes('')) {
+      setError(true)
+      setMessage('Whoops! It looks like you forgot to add your email')
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
+      return
+    }
+
     if (!validator.isEmail(email)) {
       setError(true)
-    } else {
-      setError(false)
+      setMessage('Please provide a valid email address')
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
+      return
     }
   }
 
@@ -53,7 +65,7 @@ const App = () => {
 
       {error && (
         <Alert>
-          <p>Please privde a valid email address</p>
+          <p>{message}</p>
         </Alert>
       )}
 
