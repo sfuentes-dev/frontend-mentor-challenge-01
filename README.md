@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./src/assets/images/illustration-dashboard.png)
+![](./src/assets/images/Screenshot%202022-11-16%20at%2016-29-34%20Ping%20cooming%20soon%20page%20-%20React.png)
 
 ## My process
 
